@@ -67,11 +67,11 @@ const config = {
         fps: 60,
       },
     },
-    wobbley: { enabled: true },
+    wobbley: { enabled: false },
     snow: {
       enabled: true,
       options: {
-        opacity: 0.1,
+        opacity: 0.2,
       },
     },
   },

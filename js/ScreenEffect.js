@@ -28,24 +28,15 @@ export class ScreenEffect {
     const container = document.createElement("div");
     container.classList.add("screen-container");
 
-    const wrapper1 = document.createElement("div");
-    wrapper1.classList.add("screen-wrapper");
+    const wrapper = document.createElement("div");
+    wrapper.classList.add("screen-wrapper");
 
-    const wrapper2 = document.createElement("div");
-    wrapper2.classList.add("screen-wrapper");
-
-    const wrapper3 = document.createElement("div");
-    wrapper3.classList.add("screen-wrapper");
-
-    wrapper1.appendChild(wrapper2);
-    wrapper2.appendChild(wrapper3);
-
-    container.appendChild(wrapper1);
+    container.appendChild(wrapper);
 
     this.parent.parentNode.insertBefore(container, this.parent);
-    wrapper3.appendChild(this.parent);
+    wrapper.appendChild(this.parent);
 
-    this.nodes = { container, wrapper1, wrapper2, wrapper3 };
+    this.nodes = { container, wrapper };
 
     this.onResize();
   }
@@ -85,7 +76,7 @@ export class ScreenEffect {
       canvas.width = this.rect.width / 2;
       canvas.height = this.rect.height / 2;
 
-      this.nodes.wrapper2.appendChild(canvas);
+      this.nodes.wrapper.appendChild(canvas);
 
       animate();
       // that.generateSnow(ctx);
@@ -96,7 +87,7 @@ export class ScreenEffect {
       }
 
       this.effects[type] = {
-        wrapper: this.nodes.wrapper2,
+        wrapper: this.nodes.wrapper,
         node: canvas,
         enabled: true,
         config,
@@ -112,13 +103,13 @@ export class ScreenEffect {
     if (type === "vcr") {
       const canvas = document.createElement("canvas");
       canvas.classList.add(type);
-      this.nodes.wrapper2.appendChild(canvas);
+      this.nodes.wrapper.appendChild(canvas);
 
       canvas.width = this.rect.width;
       canvas.height = this.rect.height;
 
       this.effects[type] = {
-        wrapper: this.nodes.wrapper2,
+        wrapper: this.nodes.wrapper,
         node: canvas,
         ctx: canvas.getContext("2d"),
         enabled: true,
@@ -131,7 +122,7 @@ export class ScreenEffect {
     }
 
     let node = false;
-    let wrapper = this.nodes.wrapper2;
+    let wrapper = this.nodes.wrapper;
 
     switch (type) {
       case "wobblex":
@@ -220,10 +211,6 @@ export class ScreenEffect {
       div.appendChild(el);
       div.appendChild(el.cloneNode(true));
 
-      // if ( this.effects.vcr.enabled ) {
-      // 	div.appendChild(this.effects.vcr.node);
-      // }
-
       this.effects.roll = {
         enabled: true,
         wrapper: this.parent,
@@ -234,9 +221,7 @@ export class ScreenEffect {
   }
 
   generateVCRNoise() {
-    const canvas = this.effects.vcr.node;
     const config = this.effects.vcr.config;
-    const div = this.effects.vcr.node;
 
     if (config.fps >= 60) {
       cancelAnimationFrame(this.vcrInterval);
