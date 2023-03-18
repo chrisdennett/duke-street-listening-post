@@ -16,6 +16,16 @@ body {
 }
 
 /*
+* audio visualiser
+*/
+/* #audioVisCanvas {
+  border: 1px solid white;
+} */
+#progressCanvas {
+  border: 1px solid white;
+}
+
+/*
 * VIDEO TEXT
 */
 .titles {
@@ -23,6 +33,7 @@ body {
   z-index: 1;
   top: 10px;
   right: 10px;
+  left: 10px;
   text-align: left;
   background-color: rgba(2, 2, 2, 0.9);
   color: white;
@@ -32,24 +43,33 @@ body {
   border-radius: 11px;
 }
 
+#timeText {
+  margin: 0 10px -8px 10px;
+  padding: 0;
+}
+
 .time {
   position: absolute;
   bottom: 10px;
-  left: 10px;
+  left: 0;
+  right: 0;
   z-index: 1;
   text-align: left;
-  padding: 10px 5px 5px 5px;
+  padding: 10px 5px 5px 15px;
   font-size: 10px;
   line-height: 10px;
   border-radius: 11px;
   background-color: rgba(2, 2, 2, 0.9);
   color: white;
+  display: flex;
+  align-items: center;
 }
 
 /*
 VINTAGE TV EFFECT
 */
-canvas {
+.vcr,
+.snow {
   position: absolute;
   left: 0;
   top: 0;

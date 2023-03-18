@@ -4,6 +4,7 @@ export const audioData = {
       key: "0",
       index: 0,
       soundFile: "00_MUSEUM 1 MOOSE FINAL.wav",
+      duration: 95,
     },
     {
       key: "1",

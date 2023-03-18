@@ -1,11 +1,13 @@
 import { audioData } from "./audioData.js";
 import { AudioVisualiser } from "./audioVisualiser.js";
+import { ProgressBar } from "./progressBar.js";
 import { ScreenEffect } from "./ScreenEffect.js";
 
 // Props
 let allTracks = [...audioData.tracks];
 let currentTrack = null;
 const audioVis = new AudioVisualiser();
+const progressBar = new ProgressBar();
 
 // setup
 allTracks.forEach((track) => {
@@ -36,9 +38,15 @@ function selectTrack(selectedTrack) {
   selectedTrack.audio.currentTime = 0;
 
   audioVis.setAudio(selectedTrack.audio, selectedTrack.index);
-  audioVis.play();
+  audioVis.play(onAnimationStep);
 
   currentTrack = selectedTrack;
+}
+
+function onAnimationStep(currTime, duration) {
+  // console.log("currTime: ", currTime);
+  // console.log("duration: ", duration);
+  progressBar.update(currTime, duration);
 }
 
 //

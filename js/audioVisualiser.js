@@ -1,24 +1,33 @@
 export class AudioVisualiser {
   constructor() {
     this.audio;
-    this.audioCtx = new AudioContext();
-    this.analyser = this.audioCtx.createAnalyser();
+    this.audioCtx = null;
+    this.analyser = null;
     this.audioSource = null;
     this.dataArray;
     this.barWidth;
     this.x = 0;
     this.bufferLength;
     this.canvas = document.getElementById("audioVisCanvas");
-    this.canvas.width = window.innerWidth;
-    this.canvas.height = window.innerHeight;
+    this.canvas.width = 64;
+    this.canvas.height = 40;
+    this.barWidth = 2;
     this.ctx = this.canvas.getContext("2d");
     this.audioSourceList = [];
+    // this.graphStartX = 0;
+    this.animationRef = null;
+    this.callback = null;
   }
 
   setAudio(audio, index) {
     if (!audio) return;
 
     this.audio = audio;
+
+    if (!this.audioCtx) {
+      this.audioCtx = new AudioContext();
+      this.analyser = this.audioCtx.createAnalyser();
+    }
 
     // create an audio node from the audio source
     if (!this.audioSourceList[index]) {
@@ -39,11 +48,17 @@ export class AudioVisualiser {
     this.dataArray = new Uint8Array(this.bufferLength);
 
     // the width of each bar in the canvas
-    this.barWidth = this.canvas.width / 2 / this.bufferLength;
+    //this.canvas.width / 2 / this.bufferLength;
+    // this.graphStartX = 0;
   }
 
-  play() {
+  play(callback) {
+    this.callback = callback;
     this.audio.play();
+    if (this.animationRef) {
+      cancelAnimationFrame(this.animationRef);
+    }
+    this.callback(0, this.audio.duration);
     this.animate();
   }
 
@@ -53,19 +68,26 @@ export class AudioVisualiser {
     // copies the frequency data into the dataArray in place. Each item contains a number between 0 and 255
     this.analyser.getByteFrequencyData(this.dataArray);
     this.drawVisualizer();
-    requestAnimationFrame(() => this.animate());
+
+    this.callback(this.audio.currentTime, this.audio.duration);
+
+    this.animationRef = requestAnimationFrame(() => this.animate());
   }
 
   drawVisualizer = () => {
     let barHeight;
+    const maxBarHeight = this.canvas.height;
+
     for (let i = 0; i < this.bufferLength; i++) {
-      barHeight = this.dataArray[i]; // the height of the bar is the dataArray value. Larger sounds will have a higher value and produce a taller bar
-      const red = (i * barHeight) / 10;
-      const green = i * 4;
-      const blue = barHeight / 4 - 12;
-      this.ctx.fillStyle = `rgb(${red}, ${green}, ${blue})`;
+      const barFrac = this.dataArray[i] / 255; // the height of the bar is the dataArray value. Larger sounds will have a higher value and produce a taller bar
+      barHeight = barFrac * maxBarHeight; // the height of the bar is the dataArray value. Larger sounds will have a higher value and produce a taller bar
+
+      const barX = this.bufferLength * this.barWidth;
+      //   const barX = this.graphStartX + this.bufferLength * this.barWidth;
+
+      this.ctx.fillStyle = `rgb(${255}, ${255}, ${255})`;
       this.ctx.fillRect(
-        this.canvas.width / 2 - this.x, // this will start the bars at the center of the canvas and move from right to left
+        barX - this.x, // this will start the bars at the center of the canvas and move from right to left: ;
         this.canvas.height - barHeight,
         this.barWidth,
         barHeight
@@ -74,13 +96,15 @@ export class AudioVisualiser {
     }
 
     for (let i = 0; i < this.bufferLength; i++) {
-      barHeight = this.dataArray[i]; // the height of the bar is the dataArray value. Larger sounds will have a higher value and produce a taller bar
-      const red = (i * barHeight) / 10;
-      const green = i * 4;
-      const blue = barHeight / 4 - 12;
-      this.ctx.fillStyle = `rgb(${red}, ${green}, ${blue})`;
+      const barFrac = this.dataArray[i] / 255;
+      barHeight = barFrac * maxBarHeight;
+
+      const barX = this.x;
+      //   const barX = this.graphStartX + this.x;
+
+      this.ctx.fillStyle = `rgb(${255}, ${255}, ${255})`;
       this.ctx.fillRect(
-        this.x,
+        barX,
         this.canvas.height - barHeight,
         this.barWidth,
         barHeight
