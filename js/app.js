@@ -1,9 +1,11 @@
 import { audioData } from "./audioData.js";
+import { AudioVisualiser } from "./audioVisualiser.js";
 import { ScreenEffect } from "./ScreenEffect.js";
 
 // Props
 let allTracks = [...audioData.tracks];
 let currentTrack = null;
+const audioVis = new AudioVisualiser();
 
 // setup
 allTracks.forEach((track) => {
@@ -32,7 +34,9 @@ function selectTrack(selectedTrack) {
 
   selectedTrack.audio.loop = true;
   selectedTrack.audio.currentTime = 0;
-  selectedTrack.audio.play();
+
+  audioVis.setAudio(selectedTrack.audio, selectedTrack.index);
+  audioVis.play();
 
   currentTrack = selectedTrack;
 }
@@ -84,3 +88,6 @@ for (const prop in config.effects) {
     screen.add(prop, config.effects[prop].options);
   }
 }
+
+// Add Text
+// const imgHolder = document.getElementById("screen");

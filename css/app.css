@@ -1,15 +1,8 @@
+@import url("https://fonts.googleapis.com/css2?family=Fascinate&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Special+Elite&display=swap");
+
 body {
   background-color: rgb(0, 0, 0);
-  min-height: 100vh;
-  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
-    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
-}
-
-/*
-VINTAGE TV EFFECT
-*/
-
-body {
   margin: 0;
   width: 100vw;
   height: 100vh;
@@ -17,9 +10,45 @@ body {
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  background-color: #000;
+  min-height: 100vh;
+  /* font-family: "Fascinate", cursive; */
+  font-family: "Special Elite", cursive;
 }
 
+/*
+* VIDEO TEXT
+*/
+.titles {
+  position: absolute;
+  z-index: 1;
+  top: 10px;
+  right: 10px;
+  text-align: left;
+  background-color: rgba(2, 2, 2, 0.9);
+  color: white;
+  padding: 10px 10px 5px 5px;
+  font-size: 14px;
+  line-height: 24px;
+  border-radius: 11px;
+}
+
+.time {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  z-index: 1;
+  text-align: left;
+  padding: 10px 5px 5px 5px;
+  font-size: 10px;
+  line-height: 10px;
+  border-radius: 11px;
+  background-color: rgba(2, 2, 2, 0.9);
+  color: white;
+}
+
+/*
+VINTAGE TV EFFECT
+*/
 canvas {
   position: absolute;
   left: 0;
@@ -40,15 +69,16 @@ canvas {
   background: transparent linear-gradient(to bottom, #85908c 0%, #323431 100%)
     repeat scroll 0 0;
   background-size: cover;
+  position: relative;
 }
 
 .screen-container {
   width: 420px;
-  height: 320px;
+  height: 315px;
   overflow: hidden;
   position: fixed;
-  top: 200px;
-  left: 200px;
+  top: 20px;
+  left: 10px;
 }
 
 .screen-wrapper {
@@ -268,4 +298,39 @@ canvas {
 
 .dg.ac {
   z-index: 10000 !important;
+}
+
+/* 
+* IMAGE ZOOM
+*/
+
+.image-zoom {
+  width: 100%;
+  float: left;
+  position: relative;
+  background: #000000;
+  overflow: hidden;
+  height: 315px;
+}
+.image-zoom:before {
+  background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+    url(/img/pass-s-ad_420x315.jpeg) no-repeat center;
+  content: "";
+  display: inline-block;
+  height: 100%;
+  opacity: 1;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  /*z-index: -1;*/
+  animation: 30s ease 0s normal none infinite running zoomin;
+}
+
+@keyframes zoomin {
+  0% {
+    transform: scale(1, 1);
+  }
+  100% {
+    transform: scale(1.5, 1.5);
+  }
 }

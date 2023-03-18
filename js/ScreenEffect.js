@@ -142,10 +142,11 @@ export class ScreenEffect {
         break;
       case "image":
         wrapper = this.parent;
-        node = document.createElement("img");
-        node.classList.add(type);
-
-        node.src = config.src;
+        // node = document.createElement("img");
+        // node.classList.add(type);
+        // node.src = config.src;
+        node = document.createElement("div");
+        node.classList.add("image-zoom");
 
         wrapper.appendChild(node);
         break;

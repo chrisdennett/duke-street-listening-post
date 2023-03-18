@@ -1,9 +1,14 @@
 # duke-street-listening-post
 
-Audio switcher using the Makey Makey and physical switchboard probably using a lampshade.
+Audio switcher using the MakeyMakey and physical switchboard probably using a
+lampshade.
 
 TODO:
-- Make a simple app to run on the raspberry pi to switch between sounds based on a keystroke.
+
+- Add the LED style on/off lights to show what's playing.
+- Set up a json file to use for sound, index, photos, title etc.
+- Allowing positioning of LEDs and screen via keyboard - save to json.
 
 IDEAS:
+
 - Use two lamp shades so two different people can listen at the same time.
