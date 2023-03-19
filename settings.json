@@ -6,10 +6,10 @@
     "y": 60
   },
   "lights": {
-    "x": 3,
-    "y": 410,
-    "spacing": 5,
-    "bottomLightSpacing": 30,
+    "x": -2,
+    "y": 418,
+    "spacing": 3,
+    "bottomLightSpacing": 70,
     "size": 30
   },
   "tracks": [
