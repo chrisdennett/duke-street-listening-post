@@ -7,7 +7,7 @@ import { setupScreen } from "./screen.js";
 const trackTitle = document.getElementById("trackTitle");
 const trackNum = document.getElementById("trackNum");
 
-// Props
+// Props / objects
 const settings = await loadJson("./settings.json");
 let allTracks = [...settings.tracks];
 let currentTrack = null;
@@ -17,10 +17,10 @@ const lights = new Lights({
   ...settings.lights,
   totalLights: allTracks.length,
 });
-lights.selectLight(-1, true);
-setupScreen({ ...settings.screen });
 
 // setup
+lights.selectLight(-1, true);
+setupScreen({ ...settings.screen });
 allTracks.forEach((track) => {
   track.audio = new Audio(`./audio/${track.soundFile}`);
 });
@@ -60,27 +60,5 @@ function selectTrack(selectedTrack) {
 }
 
 function onAnimationStep(currTime, duration) {
-  // console.log("currTime: ", currTime);
-  // console.log("duration: ", duration);
   progressBar.update(currTime, duration);
 }
-
-/**
- let jsonStr = `{ "tracks":[`;
-for (let i = 0; i < allTracks.length; i++) {
-  const track = allTracks[i];
-
-  jsonStr += `
-  {
-    "eventKey": "${track.key}",
-    "index": ${i},
-    "title": "${track.soundFile.split("_")[1].split(".")[0]}",
-    "soundFile": "${track.soundFile}",
-    "img": []
-  },
-  `;
-}
-jsonStr += `]}`;
-console.log(jsonStr);
- * 
- */
