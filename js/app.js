@@ -58,11 +58,11 @@ document.addEventListener("keydown", (e) => {
       settings.screen.width++;
       updateScreen(settings.screen);
     }
-    if (e.key === "'") {
+    if (e.key === ";") {
       settings.screen.height--;
       updateScreen(settings.screen);
     }
-    if (e.key === "#") {
+    if (e.key === "'") {
       settings.screen.height++;
       updateScreen(settings.screen);
     }
