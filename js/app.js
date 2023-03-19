@@ -36,7 +36,6 @@ document.addEventListener("keydown", (e) => {
   } else if (e.key === "d") {
     if (currentTrack) {
       currentTrack.audio.pause();
-      hhhhhhhhhhhh99999999988;
       currentTrack = null;
       lights.selectLight(-1, true);
     }

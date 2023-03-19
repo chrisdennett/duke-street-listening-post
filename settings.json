@@ -2,7 +2,7 @@
     "screen": {
         "width": 420,
         "height": 315,
-        "x": 500,
+        "x": 100,
         "y": 100
     },
     "lights": {
