@@ -3,7 +3,7 @@ import { Lights } from "./lights.js";
 import { loadJson } from "./loadJson.js";
 import { PhotoSlideshow } from "./photoSlideshow.js";
 import { ProgressBar } from "./progressBar.js";
-import { setupScreen } from "./screen.js";
+import { setupScreen, updateScreen } from "./screen.js";
 
 const trackTitle = document.getElementById("trackTitle");
 const trackNum = document.getElementById("trackNum");
@@ -33,21 +33,37 @@ document.addEventListener("keydown", (e) => {
   if (e.shiftKey) {
     if (e.key === "ArrowLeft") {
       settings.lights.x--;
-      updateScreen(settings.screen);
+      lights.update(settings.lights);
     }
     if (e.key === "ArrowRight") {
       settings.lights.x++;
-      updateScreen(settings.screen);
+      lights.update(settings.lights);
     }
     if (e.key === "ArrowUp") {
       settings.lights.y--;
-      updateScreen(settings.screen);
+      lights.update(settings.lights);
     }
     if (e.key === "ArrowDown") {
       settings.lights.y++;
-      updateScreen(settings.screen);
+      lights.update(settings.lights);
     }
   } else {
+    if (e.key === "[") {
+      settings.screen.width--;
+      updateScreen(settings.screen);
+    }
+    if (e.key === "]") {
+      settings.screen.width++;
+      updateScreen(settings.screen);
+    }
+    if (e.key === "'") {
+      settings.screen.height--;
+      updateScreen(settings.screen);
+    }
+    if (e.key === "#") {
+      settings.screen.height++;
+      updateScreen(settings.screen);
+    }
     if (e.key === "ArrowLeft") {
       settings.screen.x--;
       updateScreen(settings.screen);
@@ -75,6 +91,10 @@ document.addEventListener("keydown", (e) => {
       currentTrack = null;
       lights.selectLight(-1, true);
     }
+  } else if (e.key === "s") {
+    saveCurrentSettings(settings);
+  } else {
+    console.log("e.key: ", e.key);
   }
 });
 
@@ -105,4 +125,17 @@ function selectTrack(selectedTrack) {
 function onAnimationStep(currTime, duration) {
   progressBar.update(currTime, duration);
   photoSlideshow.update(currTime, duration);
+}
+
+function saveCurrentSettings(settings) {
+  // const settings = { presets: paintingPresets };
+
+  // save to file
+  var a = document.createElement("a");
+  var file = new Blob([JSON.stringify(settings, null, 2)], {
+    type: "text/plain",
+  });
+  a.href = URL.createObjectURL(file);
+  a.download = "settings.json";
+  a.click();
 }
