@@ -6,9 +6,6 @@ body {
   margin: 0;
   width: 100vw;
   height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   overflow: hidden;
   min-height: 100vh;
   /* font-family: "Fascinate", cursive; */
@@ -27,6 +24,10 @@ body {
   border: 2px solid white;
   border-radius: 10px;
   box-shadow: 0 0 5px rgba(0, 0, 0, 1);
+}
+#lightsCanvas {
+  /* border: 2px solid white; */
+  position: fixed;
 }
 
 /*

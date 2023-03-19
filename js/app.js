@@ -1,7 +1,8 @@
 import { AudioVisualiser } from "./audioVisualiser.js";
+import { Lights } from "./lights.js";
 import { loadJson } from "./loadJson.js";
 import { ProgressBar } from "./progressBar.js";
-import { ScreenEffect } from "./ScreenEffect.js";
+import { setupScreen } from "./screen.js";
 
 const trackTitle = document.getElementById("trackTitle");
 const trackNum = document.getElementById("trackNum");
@@ -12,6 +13,12 @@ let allTracks = [...settings.tracks];
 let currentTrack = null;
 const audioVis = new AudioVisualiser();
 const progressBar = new ProgressBar();
+const lights = new Lights({
+  ...settings.lights,
+  totalLights: allTracks.length,
+});
+lights.selectLight(-1, true);
+setupScreen({ ...settings.screen });
 
 // setup
 allTracks.forEach((track) => {
@@ -27,9 +34,11 @@ document.addEventListener("keydown", (e) => {
     if (currentTrack) {
       currentTrack.audio.pause();
       currentTrack = null;
+      lights.selectLight(-1, true);
     }
   }
 });
+1;
 
 function selectTrack(selectedTrack) {
   if (currentTrack && currentTrack.index === selectedTrack.index) return;
@@ -43,6 +52,7 @@ function selectTrack(selectedTrack) {
   trackNum.innerHTML = selectedTrack.index + 1;
   trackTitle.innerHTML = selectedTrack.title;
 
+  lights.selectLight(selectedTrack.index);
   audioVis.setAudio(selectedTrack.audio, selectedTrack.index);
   audioVis.play(onAnimationStep);
 
@@ -53,54 +63,6 @@ function onAnimationStep(currTime, duration) {
   // console.log("currTime: ", currTime);
   // console.log("duration: ", duration);
   progressBar.update(currTime, duration);
-}
-
-//
-// Video effect
-//
-const config = {
-  effects: {
-    roll: {
-      enabled: false,
-      options: {
-        speed: 1000,
-      },
-    },
-    image: {
-      enabled: true,
-      options: {
-        src: "./img/pass-s-ad.JPG",
-        blur: 1.2,
-      },
-    },
-    vignette: { enabled: true },
-    scanlines: { enabled: true },
-    vcr: {
-      enabled: true,
-      options: {
-        opacity: 1,
-        miny: 220,
-        miny2: 220,
-        num: 70,
-        fps: 60,
-      },
-    },
-    wobbley: { enabled: false },
-    snow: {
-      enabled: true,
-      options: {
-        opacity: 0.2,
-      },
-    },
-  },
-};
-
-const screen = new ScreenEffect("#screen", {});
-
-for (const prop in config.effects) {
-  if (!!config.effects[prop].enabled) {
-    screen.add(prop, config.effects[prop].options);
-  }
 }
 
 /**

@@ -1,4 +1,15 @@
 {
+    "screen": {
+        "x": 500,
+        "y": 100
+    },
+    "lights": {
+        "x": 50,
+        "y": 420,
+        "spacing": 5,
+        "bottomLightSpacing": 30,
+        "size": 30
+    },
     "tracks": [
         {
             "eventKey": "0",
