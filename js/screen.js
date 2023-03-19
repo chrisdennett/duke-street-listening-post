@@ -1,5 +1,7 @@
 import { ScreenEffect } from "./ScreenEffect.js";
 
+let screen;
+
 export function setupScreen({ x, y, width, height }) {
   //
   // Video effect
@@ -40,7 +42,7 @@ export function setupScreen({ x, y, width, height }) {
       },
     },
   };
-  const screen = new ScreenEffect("#screen", {});
+  screen = new ScreenEffect("#screen", {});
 
   for (const prop in config.effects) {
     if (!!config.effects[prop].enabled) {
@@ -48,6 +50,13 @@ export function setupScreen({ x, y, width, height }) {
     }
   }
 
+  screen.nodes.container.style.left = `${x}px`;
+  screen.nodes.container.style.top = `${y}px`;
+  screen.nodes.container.style.width = `${width}px`;
+  screen.nodes.container.style.height = `${height}px`;
+}
+
+export function updateScreen({ x, y, width, height }) {
   screen.nodes.container.style.left = `${x}px`;
   screen.nodes.container.style.top = `${y}px`;
   screen.nodes.container.style.width = `${width}px`;

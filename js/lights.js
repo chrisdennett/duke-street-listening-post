@@ -11,9 +11,25 @@ export class Lights {
 
     this.canvas.style.left = `${x}px`;
     this.canvas.style.top = `${y}px`;
+
+    this.currentIndex;
+    this.selectBottomLight;
+  }
+
+  update({ x, y, spacing, size, bottomLightSpacing }) {
+    this.canvas.style.left = `${x}px`;
+    this.canvas.style.top = `${y}px`;
+    this.spacing = spacing;
+    this.size = size;
+    this.bottomLightSpacing = bottomLightSpacing;
+
+    this.selectLight(this.currentIndex, this.selectBottomLight);
   }
 
   selectLight(index, selectBottomLight) {
+    this.currentIndex = index;
+    this.selectBottomLight = selectBottomLight;
+
     this.ctx.fillStyle = "white";
 
     this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);

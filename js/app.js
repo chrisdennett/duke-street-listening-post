@@ -9,7 +9,7 @@ const trackTitle = document.getElementById("trackTitle");
 const trackNum = document.getElementById("trackNum");
 
 // Props / objects
-const settings = await loadJson("./settings.json");
+let settings = await loadJson("./settings.json");
 let allTracks = [...settings.tracks];
 let currentTrack = null;
 const audioVis = new AudioVisualiser();
@@ -30,6 +30,42 @@ allTracks.forEach((track) => {
 
 // keyboard listeners
 document.addEventListener("keydown", (e) => {
+  if (e.shiftKey) {
+    if (e.key === "ArrowLeft") {
+      settings.lights.x--;
+      updateScreen(settings.screen);
+    }
+    if (e.key === "ArrowRight") {
+      settings.lights.x++;
+      updateScreen(settings.screen);
+    }
+    if (e.key === "ArrowUp") {
+      settings.lights.y--;
+      updateScreen(settings.screen);
+    }
+    if (e.key === "ArrowDown") {
+      settings.lights.y++;
+      updateScreen(settings.screen);
+    }
+  } else {
+    if (e.key === "ArrowLeft") {
+      settings.screen.x--;
+      updateScreen(settings.screen);
+    }
+    if (e.key === "ArrowRight") {
+      settings.screen.x++;
+      updateScreen(settings.screen);
+    }
+    if (e.key === "ArrowUp") {
+      settings.screen.y--;
+      updateScreen(settings.screen);
+    }
+    if (e.key === "ArrowDown") {
+      settings.screen.y++;
+      updateScreen(settings.screen);
+    }
+  }
+
   const track = allTracks.find((t) => e.key === t.eventKey);
   if (track) {
     selectTrack(track);
