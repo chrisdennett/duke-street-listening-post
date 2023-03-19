@@ -1,10 +1,14 @@
-import { audioData } from "./audioData.js";
 import { AudioVisualiser } from "./audioVisualiser.js";
+import { loadJson } from "./loadJson.js";
 import { ProgressBar } from "./progressBar.js";
 import { ScreenEffect } from "./ScreenEffect.js";
 
+const trackTitle = document.getElementById("trackTitle");
+const trackNum = document.getElementById("trackNum");
+
 // Props
-let allTracks = [...audioData.tracks];
+const settings = await loadJson("./settings.json");
+let allTracks = [...settings.tracks];
 let currentTrack = null;
 const audioVis = new AudioVisualiser();
 const progressBar = new ProgressBar();
@@ -16,7 +20,7 @@ allTracks.forEach((track) => {
 
 // keyboard listeners
 document.addEventListener("keydown", (e) => {
-  const track = allTracks.find((t) => e.key === t.key);
+  const track = allTracks.find((t) => e.key === t.eventKey);
   if (track) {
     selectTrack(track);
   } else if (e.key === "c") {
@@ -36,6 +40,8 @@ function selectTrack(selectedTrack) {
 
   selectedTrack.audio.loop = true;
   selectedTrack.audio.currentTime = 0;
+  trackNum.innerHTML = selectedTrack.index + 1;
+  trackTitle.innerHTML = selectedTrack.title;
 
   audioVis.setAudio(selectedTrack.audio, selectedTrack.index);
   audioVis.play(onAnimationStep);
@@ -97,5 +103,22 @@ for (const prop in config.effects) {
   }
 }
 
-// Add Text
-// const imgHolder = document.getElementById("screen");
+/**
+ let jsonStr = `{ "tracks":[`;
+for (let i = 0; i < allTracks.length; i++) {
+  const track = allTracks[i];
+
+  jsonStr += `
+  {
+    "eventKey": "${track.key}",
+    "index": ${i},
+    "title": "${track.soundFile.split("_")[1].split(".")[0]}",
+    "soundFile": "${track.soundFile}",
+    "img": []
+  },
+  `;
+}
+jsonStr += `]}`;
+console.log(jsonStr);
+ * 
+ */
