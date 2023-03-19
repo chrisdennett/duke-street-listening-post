@@ -33,15 +33,15 @@ document.addEventListener("keydown", (e) => {
   const track = allTracks.find((t) => e.key === t.eventKey);
   if (track) {
     selectTrack(track);
-  } else if (e.key === "c") {
+  } else if (e.key === "d") {
     if (currentTrack) {
       currentTrack.audio.pause();
+      hhhhhhhhhhhh99999999988;
       currentTrack = null;
       lights.selectLight(-1, true);
     }
   }
 });
-1;
 
 function selectTrack(selectedTrack) {
   if (currentTrack && currentTrack.index === selectedTrack.index) return;

@@ -5,7 +5,6 @@ lampshade.
 
 TODO:
 
-- Get photos being loaded from settings files.
 - Add a screen for the off setting - testcard maybe saying select track.
   - or could just be big text saying: "⬇ Select a Track ⬇ "
 - Allowing positioning of LEDs and screen via keyboard - save to json.
