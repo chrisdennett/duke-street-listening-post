@@ -2,7 +2,7 @@ export class ProgressBar {
   constructor() {
     this.canvas = document.getElementById("progressCanvas");
     this.timeText = document.getElementById("timeText");
-    this.canvas.width = 240;
+    this.canvas.width = 100;
     this.canvas.height = 40;
     this.ctx = this.canvas.getContext("2d");
   }
