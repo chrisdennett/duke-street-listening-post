@@ -146,6 +146,7 @@ export class ScreenEffect {
         // node.classList.add(type);
         // node.src = config.src;
         node = document.createElement("div");
+        node.id = "screenImage";
         node.classList.add("image-zoom");
 
         wrapper.appendChild(node);

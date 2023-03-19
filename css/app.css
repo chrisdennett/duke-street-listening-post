@@ -102,8 +102,8 @@ VINTAGE TV EFFECT
 }
 
 .screen-container {
-  width: 420px;
-  height: 315px;
+  /* width: 420px;
+  height: 315px; */
   overflow: hidden;
   position: fixed;
   top: 20px;

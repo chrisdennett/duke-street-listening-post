@@ -1,6 +1,6 @@
 import { ScreenEffect } from "./ScreenEffect.js";
 
-export function setupScreen({ x, y }) {
+export function setupScreen({ x, y, width, height }) {
   //
   // Video effect
   //
@@ -8,16 +8,16 @@ export function setupScreen({ x, y }) {
     effects: {
       roll: {
         enabled: false,
-        options: {
-          speed: 1000,
-        },
+        // options: {
+        //   speed: 1000,
+        // },
       },
       image: {
-        enabled: true,
-        options: {
-          src: "./img/pass-s-ad.JPG",
-          blur: 1.2,
-        },
+        enabled: false,
+        // options: {
+        //   src: "./img/pass-s-ad.JPG",
+        //   blur: 1.2,
+        // },
       },
       vignette: { enabled: true },
       scanlines: { enabled: true },
@@ -50,4 +50,6 @@ export function setupScreen({ x, y }) {
 
   screen.nodes.container.style.left = `${x}px`;
   screen.nodes.container.style.top = `${y}px`;
+  screen.nodes.container.style.width = `${width}px`;
+  screen.nodes.container.style.height = `${height}px`;
 }

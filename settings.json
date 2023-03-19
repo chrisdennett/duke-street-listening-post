@@ -1,5 +1,7 @@
 {
     "screen": {
+        "width": 420,
+        "height": 315,
         "x": 500,
         "y": 100
     },
@@ -16,14 +18,21 @@
             "index": 0,
             "title": "MUSEUM 1 MOOSE FINAL",
             "soundFile": "00_MUSEUM 1 MOOSE FINAL.wav",
-            "img": []
+            "img": [
+                "01_placeholder.jpg",
+                "02_placeholder.jpg"
+            ]
         },
         {
             "eventKey": "1",
             "index": 1,
             "title": "MUSEUM 2 MUMMY MIX FINAL",
             "soundFile": "01_MUSEUM 2 MUMMY MIX FINAL.wav",
-            "img": []
+            "img": [
+                "03_placeholder.jpg",
+                "04_placeholder.jpg",
+                "05_placeholder.jpg"
+            ]
         },
         {
             "eventKey": "2",
