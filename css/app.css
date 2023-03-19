@@ -12,6 +12,18 @@ body {
   font-family: "Special Elite", cursive;
 }
 
+#instructions {
+  display: none;
+  z-index: 12;
+  font-size: 46px;
+  line-height: 42px;
+  color: white;
+  padding: 20px 10px 10px 10px;
+  position: absolute;
+  background: green;
+  min-height: 100%;
+}
+
 /*
 * audio visualiser & progress bar
 */

@@ -7,6 +7,7 @@ import { setupScreen, updateScreen } from "./screen.js";
 
 const trackTitle = document.getElementById("trackTitle");
 const trackNum = document.getElementById("trackNum");
+const instructions = document.getElementById("instructions");
 
 // Props / objects
 let settings = await loadJson("./settings.json");
@@ -27,6 +28,7 @@ setupScreen({ ...settings.screen });
 allTracks.forEach((track) => {
   track.audio = new Audio(`./audio/${track.soundFile}`);
 });
+instructions.style.display = "inherit";
 
 // keyboard listeners
 document.addEventListener("keydown", (e) => {
@@ -85,11 +87,13 @@ document.addEventListener("keydown", (e) => {
   const track = allTracks.find((t) => e.key === t.eventKey);
   if (track) {
     selectTrack(track);
+    instructions.style.display = "none";
   } else if (e.key === "d") {
     if (currentTrack) {
       currentTrack.audio.pause();
       currentTrack = null;
       lights.selectLight(-1, true);
+      instructions.style.display = "inherit";
     }
   } else if (e.key === "s") {
     saveCurrentSettings(settings);
