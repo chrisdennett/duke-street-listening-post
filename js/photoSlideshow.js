@@ -33,7 +33,9 @@ export class PhotoSlideshow {
     }
 
     this.currPhotoIndex = 0;
-    this.ctx.drawImage(this.photos[this.currPhotoIndex], 0, 0);
+    const thisImg = this.photos[this.currPhotoIndex];
+
+    this.ctx.drawImage(thisImg, 0, 0);
     this.isSetup = true;
   }
 
