@@ -16,108 +16,137 @@
     {
       "eventKey": "f",
       "index": 0,
-      "title": "MUSEUM 1 MOOSE FINAL",
-      "soundFile": "00_MUSEUM 1 MOOSE FINAL.wav",
+      "title": "MUSEUM 1 MOOSE",
+      "soundFile": "MUSEUM 1 MOOSE.wav",
       "img": [
-        "01_placeholder.jpg",
-        "02_placeholder.jpg",
-        "03_placeholder.jpg",
-        "04_placeholder.jpg",
-        "05_placeholder.jpg"
-      ],
-      "audio": {}
+        "1 Moose used NWEM 8_3_2023.jpg",
+        "2 Barrow Libary.jpg",
+        "3 Barrow library display.JPG"
+      ]
     },
     {
       "eventKey": "e",
       "index": 1,
-      "title": "MUSEUM 2 MUMMY MIX FINAL",
-      "soundFile": "01_MUSEUM 2 MUMMY MIX FINAL.wav",
+      "title": "MUSEUM 2 THE MUMMY_S HAND",
+      "soundFile": "MUSEUM 2 THE MUMMY_S HAND.wav",
       "img": [
-        "03_placeholder.jpg",
-        "04_placeholder.jpg",
-        "05_placeholder.jpg"
-      ],
-      "audio": {}
+        "1 Museum.jpg",
+        "2 12_ Museum taxidermy.jpg",
+        "4 18_ Mummy Egyptian extraction.jpg",
+        "5 40_ The Mummy 1959 Title.jpg",
+        "6 1_01_ The Mummy screenshot.jpg",
+        "7 1_20_ The Mummy Terror of the Living.jpg"
+      ]
     },
     {
       "eventKey": "9",
       "index": 2,
-      "title": "PASSES 1 RECORD DEPT FINAL",
-      "soundFile": "02_PASSES 1 RECORD DEPT FINAL.wav",
-      "img": [],
-      "audio": {}
+      "title": "MUSEUM 3 THE MOOSE IN THE ATTIC",
+      "soundFile": "MUSEUM 3 THE MOOSE IN THE ATTIC.wav",
+      "img": [
+        "1 Alexandra Fox Hart Jackson attic with window 23_01_23.JPG",
+        "2 Hart Jackson Moose.jpg",
+        "3 Stephen Hart Jackson.jpg",
+        "4 Hart Jackson Ulverston exterior 2022.jpg"
+      ]
     },
     {
       "eventKey": "8",
       "index": 3,
-      "title": "PASSES 2 placeholder the skirt",
-      "soundFile": "03_PASSES 2 placeholder the skirt.wav",
-      "img": [],
-      "audio": {}
+      "title": "PASS_S 1 THE RECORD DEPARTMENT",
+      "soundFile": "PASS_S 1 THE RECORD DEPARTMENT.wav",
+      "img": [
+        "1 0_ Pass_s still from Armchair walk.jpg",
+        "2 5_ Susan Higginson aged 16 1961.JPG",
+        "3 11_ Pass_s ad.JPG",
+        "4 41_ chubby_checker.jpg",
+        "5 1_05 craig douglas.jpg"
+      ]
     },
     {
       "eventKey": "7",
       "index": 4,
-      "title": "PASSES 3 placeholder pulley system",
-      "soundFile": "04_PASSES 3 placeholder pulley system.wav",
-      "img": [],
-      "audio": {}
+      "title": "PASS_S 2 THE INAPPROPRIATE SKIRT",
+      "soundFile": "PASS_S 2 THE INAPPROPRIATE SKIRT.wav",
+      "img": [
+        "1 Susan Higginson aged 16 with friend in Blackpool on way to Cliff Richard Concert.JPG",
+        "2 7_ skirt_pattern.jpg",
+        "3 16_ jive_border.jpg"
+      ]
     },
     {
       "eventKey": "6",
       "index": 5,
-      "title": "PUBLIC HALL placeholder jive knickers bullet bras",
-      "soundFile": "05_PUBLIC HALL placeholder jive knickers bullet bras.mp3",
-      "img": [],
-      "audio": {}
+      "title": "PASS_S 3 THE PASS_S PULLY",
+      "soundFile": "PASS_S 3 THE PASS_S PULLY.wav",
+      "img": [
+        "1 Pass_s plans 1904 Elevation to Duke St_ Source Barrow Local Studies Archive.JPG",
+        "2 Pass_s Department Store.jpg",
+        "3 Pass_s Walch and Pohl Piano Department.JPG"
+      ]
     },
     {
       "eventKey": "0",
       "index": 6,
-      "title": "PUBLIC HALL placeholder pat meets alan",
-      "soundFile": "06_PUBLIC HALL placeholder pat meets alan.mp3",
-      "img": [],
-      "audio": {}
+      "title": "PASS_S 4 MARGARET MEETS QUEENIE",
+      "soundFile": "PASS_S 4 MARGARET MEETS QUEENIE.wav",
+      "img": [
+        "1 Pass_s Department Store.jpg",
+        "2 dolls from furness yearbook.JPG",
+        "3 Pass_s plans.JPG"
+      ]
     },
     {
       "eventKey": "5",
       "index": 7,
-      "title": "PUBLIC HALL placeholder The Mirror Ball",
-      "soundFile": "07_PUBLIC HALL placeholder The Mirror Ball.mp3",
-      "img": [],
-      "audio": {}
+      "title": "PUBLIC HALL 1 PAT MEETS ALLAN",
+      "soundFile": "PUBLIC HALL 1 PAT MEETS ALLAN.wav",
+      "img": [
+        "1 BDP_53_21 credit Bill Myers.jpg",
+        "2 BLC_P_200_VB_PUB 21 Credit Bill Myers.jpg",
+        "20230223120614.jpg",
+        "20230223140624.jpg"
+      ]
     },
     {
       "eventKey": "2",
       "index": 8,
-      "title": "egypt",
-      "soundFile": "08_egypt.wav",
-      "img": [],
-      "audio": {}
+      "title": "PUBLIC HALL 2 JIVE KNICKERS",
+      "soundFile": "PUBLIC HALL 2 JIVE KNICKERS.wav",
+      "img": [
+        "jive knickers stock photo.jpg"
+      ]
     },
     {
       "eventKey": "3",
       "index": 9,
-      "title": "electric-hum-and-buzz",
-      "soundFile": "09_electric-hum-and-buzz.wav",
-      "img": [],
-      "audio": {}
+      "title": "PUBLIC HALL 3 THE GLITTER BALL",
+      "soundFile": "PUBLIC HALL 3 THE GLITTER BALL.wav",
+      "img": [
+        "BDP_53_21 credit Bill Myers (2).jpg",
+        "glitter ball stock photo.jpg"
+      ]
     },
     {
       "eventKey": "1",
       "index": 10,
-      "title": "mummy-groan",
-      "soundFile": "10_mummy-groan.mp3",
-      "img": [],
-      "audio": {}
+      "title": "PUBLIC HALL 4 MARGARET_S FRIDAY NIGHT DRESSES",
+      "soundFile": "PUBLIC HALL 4 MARGARET_S FRIDAY NIGHT DRESSES.wav",
+      "img": [
+        "1 BDP_53_21 credit Bill Myers (2).jpg",
+        "2 20230223133920.jpg",
+        "3 a line dress pattern.jpg"
+      ]
     },
     {
       "eventKey": "4",
       "index": 11,
-      "title": "mummy-groan",
-      "soundFile": "11_mummy-groan.wav",
-      "img": [],
-      "audio": {}
+      "title": "PUBLIC HALL 5 SNEAKING TO THE RINK",
+      "soundFile": "PUBLIC HALL 5 SNEAKING TO THE RINK.wav",
+      "img": [
+        "1 BDP_53_21 credit Bill Myers (2).jpg",
+        "2 the_rink.jpg"
+      ]
     }
   ]
 }
