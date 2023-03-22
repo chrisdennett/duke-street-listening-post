@@ -50,6 +50,24 @@ document.addEventListener("keydown", (e) => {
       lights.update(settings.lights);
     }
   } else {
+    if (e.key === "v") {
+      // volume up
+      allTracks.forEach((track) => {
+        track.audio.volume += 0.1;
+        if (track.audio.volume > 1) {
+          track.audio.volume = 1;
+        }
+      });
+    }
+    if (e.key === "b") {
+      // volume down
+      allTracks.forEach((track) => {
+        track.audio.volume -= 0.1;
+        if (track.audio.volume < 0) {
+          track.audio.volume = 0;
+        }
+      });
+    }
     if (e.key === "[") {
       settings.screen.width--;
       updateScreen(settings.screen);
