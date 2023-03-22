@@ -53,7 +53,7 @@ document.addEventListener("keydown", (e) => {
     if (e.key === "v") {
       // volume up
       allTracks.forEach((track) => {
-        track.audio.volume += 0.1;
+        track.audio.volume += 0.01;
         if (track.audio.volume > 1) {
           track.audio.volume = 1;
         }
@@ -62,7 +62,7 @@ document.addEventListener("keydown", (e) => {
     if (e.key === "b") {
       // volume down
       allTracks.forEach((track) => {
-        track.audio.volume -= 0.1;
+        track.audio.volume -= 0.01;
         if (track.audio.volume < 0) {
           track.audio.volume = 0;
         }
