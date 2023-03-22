@@ -140,13 +140,13 @@ VINTAGE TV EFFECT
   width: 100%;
   height: 100%;
 }
-.image {
-  /* width: 100%; */
-  /* object-fit: cover; */
-  /* height: auto; */
+/* .image {
+  /* width: 100%; 
+  /* object-fit: cover; 
+  /* height: auto; 
   filter: blur(0.5px);
   opacity: 0.9;
-}
+} */
 .vignette {
   background: rgba(0, 0, 0, 0.2);
   /* background-image: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/86186/crt.png); */
@@ -350,7 +350,7 @@ VINTAGE TV EFFECT
 * IMAGE ZOOM
 */
 
-.image-zoom {
+/* .image-zoom {
   width: 100%;
   float: left;
   position: relative;
@@ -368,7 +368,6 @@ VINTAGE TV EFFECT
   position: absolute;
   top: 0;
   width: 100%;
-  /*z-index: -1;*/
   animation: 30s ease 0s normal none infinite running zoomin;
 }
 
@@ -379,4 +378,4 @@ VINTAGE TV EFFECT
   100% {
     transform: scale(1.5, 1.5);
   }
-}
+} */

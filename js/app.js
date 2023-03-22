@@ -27,6 +27,7 @@ lights.selectLight(-1, true);
 setupScreen({ ...settings.screen });
 allTracks.forEach((track) => {
   track.audio = new Audio(`./audio/${track.soundFile}`);
+  track.audio.volume = 0.04;
 });
 instructions.style.display = "inherit";
 
@@ -58,6 +59,11 @@ document.addEventListener("keydown", (e) => {
           track.audio.volume = 1;
         }
       });
+      console.log(
+        "volume: ",
+        allTrackffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffs[0]
+          .audio.volume
+      );
     }
     if (e.key === "b") {
       // volume down
@@ -67,6 +73,7 @@ document.addEventListener("keydown", (e) => {
           track.audio.volume = 0;
         }
       });
+      console.log("volume: ", allTracks[0].audio.volume);
     }
     if (e.key === "[") {
       settings.screen.width--;
