@@ -9,6 +9,12 @@ const trackTitle = document.getElementById("trackTitle");
 const trackNum = document.getElementById("trackNum");
 const instructions = document.getElementById("instructions");
 
+let savedVolume = parseFloat(localStorage.getItem("volume"));
+if (!savedVolume) {
+  savedVolume = 1;
+}
+console.log("savedVolume: ", savedVolume);
+
 // Props / objects
 let settings = await loadJson("./settings.json");
 let allTracks = [...settings.tracks];
@@ -27,7 +33,7 @@ lights.selectLight(-1, true);
 setupScreen({ ...settings.screen });
 allTracks.forEach((track) => {
   track.audio = new Audio(`./audio/${track.soundFile}`);
-  track.audio.volume = 0.04;
+  track.audio.volume = savedVolume;
 });
 instructions.style.display = "inherit";
 
@@ -53,27 +59,26 @@ document.addEventListener("keydown", (e) => {
   } else {
     if (e.key === "v") {
       // volume up
+      savedVolume += 0.01;
+      if (savedVolume > 1) {
+        savedVolume = 1;
+      }
       allTracks.forEach((track) => {
-        track.audio.volume += 0.01;
-        if (track.audio.volume > 1) {
-          track.audio.volume = 1;
-        }
+        track.audio.volume = savedVolume;
       });
-      console.log(
-        "volume: ",
-        allTrackffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffs[0]
-          .audio.volume
-      );
+      localStorage.setItem("volume", savedVolume);
     }
     if (e.key === "b") {
       // volume down
+      // volume up
+      savedVolume -= 0.01;
+      if (savedVolume <= 0) {
+        savedVolume = 0.001;
+      }
       allTracks.forEach((track) => {
-        track.audio.volume -= 0.01;
-        if (track.audio.volume < 0) {
-          track.audio.volume = 0;
-        }
+        track.audio.volume = savedVolume;
       });
-      console.log("volume: ", allTracks[0].audio.volume);
+      localStorage.setItem("volume", savedVolume);
     }
     if (e.key === "[") {
       settings.screen.width--;
