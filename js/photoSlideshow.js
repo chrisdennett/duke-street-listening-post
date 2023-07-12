@@ -56,6 +56,10 @@ export class PhotoSlideshow {
       this.currPhotoIndex++;
     }
 
+    if(this.currPhotoIndex > this.photos.length - 1){
+      this.currPhotoIndex = 0;
+    }
+
     // grab from timings if provided
     const currImg = this.photos[this.currPhotoIndex];
     const nextImg =
@@ -102,12 +106,20 @@ export class PhotoSlideshow {
       this.ctx.drawImage(nextImg, 0, 0);
     }
 
-    this.ctx.globalAlpha = currImgOpacity;
-    this.ctx.translate(this.canvas.width / 2, this.canvas.height / 2);
-    this.ctx.scale(currImgScale, currImgScale);
-    this.ctx.translate(-this.canvas.width / 2, -this.canvas.height / 2);
-    this.ctx.drawImage(currImg, 0, 0);
-    this.ctx.restore();
+    try{
+
+      this.ctx.globalAlpha = currImgOpacity;
+      this.ctx.translate(this.canvas.width / 2, this.canvas.height / 2);
+      this.ctx.scale(currImgScale, currImgScale);
+      this.ctx.translate(-this.canvas.width / 2, -this.canvas.height / 2);
+      this.ctx.drawImage(currImg, 0, 0);
+      this.ctx.restore();
+    }
+    catch(e){
+      console.log('ERROR - cannot draw img: ', e);
+      console.log('currImg: ', currImg);
+      console.log('this.currPhotoIndex: ', this.currPhotoIndex)
+    }
   }
 
   getDefaultTimings(totalPhotos, duration) {
